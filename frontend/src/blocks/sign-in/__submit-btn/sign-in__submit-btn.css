@@ -1,0 +1,31 @@
+.sign-in__submit-btn {
+  padding: 0;
+  border: none;
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000;
+  margin: 189px auto 15px;
+  transition: .4s;
+  border-radius: 2px;
+}
+
+.sign-in__submit-btn:hover {
+  opacity: .8;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 520px) {
+  .sign-in__submit-btn {
+    height: 46px;
+    margin: 45px 0 25px 0;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

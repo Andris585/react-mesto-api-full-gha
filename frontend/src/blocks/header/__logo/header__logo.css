@@ -1,0 +1,21 @@
+.header__logo {
+  background-image: url(../../../images/logo.svg);
+  width: 142px;
+  padding-bottom: 33px;
+  background-size: cover;
+  margin-bottom: 41px;
+}
+
+@media screen and (max-width: 917px) {
+  .header__logo {
+    margin-left: 27px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .header__logo {
+    width: 104px;
+    padding-bottom: 24px;
+    margin-bottom: 31px;
+  }
+}

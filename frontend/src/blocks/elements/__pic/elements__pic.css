@@ -1,0 +1,13 @@
+.elements__pic {
+  width: 100%;
+  background-color: #000;
+  color: #FFF;
+  height: 282px;
+  border-radius: 10px 10px 0 0;
+  object-fit: cover;
+  object-position: top;
+}
+
+.elements__pic:hover {
+  cursor: pointer;
+}

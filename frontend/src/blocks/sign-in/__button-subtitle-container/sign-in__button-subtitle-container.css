@@ -1,0 +1,6 @@
+.sign-in__button-subtitle-container {
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  margin-bottom: 80px;
+}
