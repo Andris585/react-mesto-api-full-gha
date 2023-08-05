@@ -1,4 +1,5 @@
 /* eslint-disable import/no-extraneous-dependencies */
+require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const Unauthorized = require('../errors/UnauthorizedError');
 
