@@ -29,6 +29,12 @@
 `npm run start` — запускает сервер   
 `npm run dev` — запускает сервер с hot-reload
 
+## реп
+
+https://github.com/Andris585/react-mesto-api-full-gha.git
+
+## приложение
+
 IP 158.160.102.133
 Frontend https://mesto585.nomoreparties.co
 Backend https://api.mesto585.nomoreparties.co
