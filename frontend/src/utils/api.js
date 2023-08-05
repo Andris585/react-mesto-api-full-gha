@@ -89,7 +89,7 @@ changeAvatar(data) {
 }
 
 const api = new Api({
-  url: 'http://api.mesto585.nomoreparties.co',
+  url: 'https://api.mesto585.nomoreparties.co',
   headers: {
 'Content-Type': 'application/json'
 }

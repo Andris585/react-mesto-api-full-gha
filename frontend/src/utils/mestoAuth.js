@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://api.mesto585.nomoreparties.co/';
+export const BASE_URL = 'https://api.mesto585.nomoreparties.co/';
 
 const checkResponse = (res) => {
   if (res.ok) {
