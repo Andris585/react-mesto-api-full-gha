@@ -1,7 +1,6 @@
-/* eslint-disable func-names */
-/* eslint-disable import/no-extraneous-dependencies */
 const mongoose = require('mongoose');
 const isEmail = require('validator/lib/isEmail');
+const isUrl = require('validator/lib/isURL');
 const bcrypt = require('bcrypt');
 const Unauthorized = require('../errors/UnauthorizedError');
 
@@ -21,6 +20,10 @@ const userSchema = new mongoose.Schema({
   avatar: {
     type: String,
     default: 'https://pictures.s3.yandex.net/resources/jacques-cousteau_1604399756.png',
+    validate: {
+      validator: (url) => isUrl(url),
+      message: 'Некорректная ссылка на картинку',
+    },
   },
   email: {
     type: String,

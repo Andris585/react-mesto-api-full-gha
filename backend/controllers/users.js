@@ -1,6 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-/* eslint-disable no-unused-vars */
-require('dotenv').config();
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
@@ -33,12 +30,7 @@ module.exports.getUser = (req, res, next) => {
       }
       res.send({ data: user });
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        return next(new BadRequest('Переданы некорректные данные'));
-      }
-      return next(err);
-    });
+    .catch((err) => next(err));
 };
 
 module.exports.getUsers = (_, res, next) => {
@@ -55,12 +47,7 @@ module.exports.getUserById = (req, res, next) => {
       }
       return res.status(OK).send({ data: user });
     })
-    .catch((err) => {
-      if (err.name === 'CastError') {
-        return next(new NotFound('Пользователь по указанному _id не найден'));
-      }
-      return next(err);
-    });
+    .catch((err) => next(err));
 };
 
 module.exports.createNewUser = (req, res, next) => {

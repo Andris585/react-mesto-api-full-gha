@@ -1,8 +1,6 @@
-/* eslint-disable import/no-extraneous-dependencies */
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const { errors } = require('celebrate');
 const cors = require('cors');
@@ -22,8 +20,8 @@ mongoose.connect('mongodb://localhost:27017/mestodb');
 const app = express();
 
 app.use(cors({ origin: 'https://mesto585.nomoreparties.co', credentials: true }));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(requestLogger);
 app.get('/crash-test', () => {
@@ -34,14 +32,12 @@ app.get('/crash-test', () => {
 app.post('/signin', loginValidation, login);
 app.post('/signup', createNewUserValidation, createNewUser);
 app.use(auth);
-app.use(usersRouter);
-app.use(cardsRouter);
-app.use('*', () => {
-  throw new NotFound('Запрашиваемая страница не найдена');
-});
+app.use('/users', usersRouter);
+app.use('/cards', cardsRouter);
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
+app.use('*', (next) => next(new NotFound('Запрашиваемая страница не найдена')));
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Прослушивается порт: ${PORT}`);

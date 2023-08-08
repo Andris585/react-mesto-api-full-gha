@@ -1,5 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
-
 const { celebrate, Joi } = require('celebrate');
 
 // eslint-disable-next-line no-useless-escape

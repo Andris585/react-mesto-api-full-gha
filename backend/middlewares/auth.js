@@ -8,7 +8,7 @@ module.exports.auth = (req, _, next) => {
   const { NODE_ENV, JWT_SECRET } = process.env;
 
   if (!token) {
-    throw new Unauthorized('Необходима авторизация');
+    return next(new Unauthorized('Необходима авторизация'));
   }
 
   let payload;

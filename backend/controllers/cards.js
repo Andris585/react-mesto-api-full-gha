@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const Card = require('../models/card');
 const { OK, CREATED } = require('../utils/errors');
 const BadRequest = require('../errors/BadRequest');
@@ -34,16 +33,16 @@ module.exports.deleteCard = (req, res, next) => {
       if (card.owner.toString() !== req.user._id) {
         return next(new Forbidden('Нельзя удалять чужие посты'));
       }
-      Card.findByIdAndRemove(req.params.cardId)
+      card.deleteOne()
         .then((user) => res.send({ data: user }))
-        .catch((err) => {
-          if (err.name === 'CastError') {
-            return next(new BadRequest('Переданы некорректные данные при удалении карточки'));
-          }
-          return next(err);
-        });
+        .catch((err) => next(err));
     })
-    .catch(next);
+    .catch((err) => {
+      if (err.name === 'CastError') {
+        return next(new BadRequest('Переданы некорректные данные при удалении карточки'));
+      }
+      return next(err);
+    });
 };
 
 module.exports.addLike = (req, res, next) => {
