@@ -34,10 +34,10 @@ app.post('/signup', createNewUserValidation, createNewUser);
 app.use(auth);
 app.use('/users', usersRouter);
 app.use('/cards', cardsRouter);
+app.use('*', (next) => next(new NotFound('Запрашиваемая страница не найдена')));
 app.use(errorLogger);
 app.use(errors());
 app.use(errorHandler);
-app.use('*', (next) => next(new NotFound('Запрашиваемая страница не найдена')));
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`Прослушивается порт: ${PORT}`);
